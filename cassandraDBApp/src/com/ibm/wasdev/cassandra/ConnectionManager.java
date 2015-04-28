@@ -74,7 +74,7 @@ import com.datastax.driver.core.exceptions.AlreadyExistsException;
    public HashMap<String, String> addItem(String item, String price, String trend)
    {
       this.session.execute("USE itemkeyspace");
-      System.out.println("SLY: INSERT INTO item (item,  price, trend)  VALUES ('" + item + "', '" +price + "', '" + trend + "')");
+      // System.out.println("DBG: INSERT INTO item (item,  price, trend)  VALUES ('" + item + "', '" +price + "', '" + trend + "')");
       this.session.executeAsync("INSERT INTO item (item,  price, trend)  VALUES ('" + item + "', '" +price + "', '" + trend + "')");
  
       return getItems(this.session);
