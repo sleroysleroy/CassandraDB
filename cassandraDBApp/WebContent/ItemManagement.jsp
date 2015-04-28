@@ -54,8 +54,13 @@
 		    for(String key : items.keySet()) {
         		;
         		out.print("<tr><td>" + key + "</td>\n");
-					out.println("<td> " + items.get(key).substring(0, items.get(key).indexOf("---"))+ "</td>"+ 
-							    "<td> " + items.get(key).substring("---".length()+items.get(key).indexOf("---")) + "</td>"+
+        		    String value = items.get(key).substring(0, items.get(key).indexOf("---"));
+        		    String trend = (items.get(key).indexOf("---")==0 ? 
+        		    		"N/A" 
+        		    		: 
+        		    		items.get(key).substring("---".length()+items.get(key).indexOf("---")));
+					out.println("<td> " + value + "</td>"+ 
+							    "<td> " + trend + "</td>"+
 							"</tr>\n");
         	}
 		 %>
