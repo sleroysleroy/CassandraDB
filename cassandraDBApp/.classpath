@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_31">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/com.ibm.ws.st.core.runtimeClasspathProvider/WebSphere Application Server Liberty Profile">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/WebSphere Application Server Liberty Profile/shared/resources/CassandraDBSampleLibs"/>
+	<classpathentry kind="lib" path="/WebSphere Application Server Liberty Profile/shared/resources/MongoDBSampleLibs"/>
+	<classpathentry kind="lib" path="/WebSphere Application Server Liberty Profile/shared/resources/CassandraDBSampleLibs/cassandra-driver-core-2.0.4.jar"/>
+	<classpathentry kind="lib" path="/WebSphere Application Server Liberty Profile/shared/resources/CassandraDBSampleLibs/guava-16.0.1.jar"/>
+	<classpathentry kind="lib" path="/WebSphere Application Server Liberty Profile/shared/resources/CassandraDBSampleLibs/metrics-core-3.0.2.jar"/>
+	<classpathentry kind="lib" path="/WebSphere Application Server Liberty Profile/shared/resources/CassandraDBSampleLibs/netty-3.9.0.Final.jar"/>
+	<classpathentry kind="lib" path="/WebSphere Application Server Liberty Profile/shared/resources/CassandraDBSampleLibs/slf4j-api-1.7.2.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
