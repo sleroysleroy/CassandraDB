@@ -11,10 +11,11 @@ import com.datastax.driver.core.exceptions.AlreadyExistsException;
  
  public class ConnectionManager
  {
-    private static volatile ConnectionManager connMgr = null;
+    public  static final String STRING_SEPARATOR = "---";
+	private static volatile ConnectionManager connMgr = null;
    private static final String QUERY_CREATE_KEYSPACE = "CREATE KEYSPACE itemkeyspace WITH replication = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }";
    private static final String QUERY_USE_KEYSPACE = "USE itemkeyspace";
-   private static final String QUERY_CREATE_TABLE = "CREATE TABLE item ( item text PRIMARY KEY, price text)";
+   private static final String QUERY_CREATE_TABLE = "CREATE TABLE item ( item text PRIMARY KEY, price text, trend text)";
     private String host = "localhost";
     private Cluster cluster = null;
     private Session session = null;
@@ -62,7 +63,7 @@ import com.datastax.driver.core.exceptions.AlreadyExistsException;
      {
         this.session.execute("CREATE KEYSPACE itemkeyspace WITH replication = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 }");
         this.session.execute("USE itemkeyspace");
-        this.session.execute("CREATE TABLE item ( item text PRIMARY KEY, price text)");
+        this.session.execute("CREATE TABLE item ( item text PRIMARY KEY, price text, trend text)");
      }
      catch (AlreadyExistsException e)
      {
@@ -70,10 +71,12 @@ import com.datastax.driver.core.exceptions.AlreadyExistsException;
      }
    }
    
-   public HashMap<String, String> addItem(String item, String price)
+   public HashMap<String, String> addItem(String item, String price, String trend)
    {
       this.session.execute("USE itemkeyspace");
-      this.session.executeAsync("INSERT INTO item (item,  price)  VALUES ('" + item + "', '" + price + "')");
+      System.out.println("SLY: INSERT INTO item (item,  price, trend)  VALUES ('" + item + "', '" +price + "', '" + trend + "')");
+      this.session.executeAsync("INSERT INTO item (item,  price, trend)  VALUES ('" + item + "', '" +price + "', '" + trend + "')");
+ 
       return getItems(this.session);
    }
    
@@ -96,7 +99,7 @@ import com.datastax.driver.core.exceptions.AlreadyExistsException;
      
       HashMap<String, String> data = new HashMap();
       for (Row row : resultSet) {
-        data.put(row.getString("item"), row.getString("price"));
+        data.put(row.getString("item"), row.getString("price") + STRING_SEPARATOR + row.getString("trend"));
      }
       return data;
    }

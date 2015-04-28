@@ -53,7 +53,7 @@ public class CassandraServlet extends HttpServlet {
 
             if ("Add".equalsIgnoreCase(action)) {
                 //Adding items via ConnectionManager
-                items = connMgr.addItem(request.getParameter("item"), request.getParameter("price"));
+                items = connMgr.addItem(request.getParameter("item"), request.getParameter("price"), request.getParameter("trend"));
                 System.out.println("Item '" + request.getParameter("item") + "' is added successfully");
             } else {
                 items = connMgr.removeItem(request.getParameter("item"));

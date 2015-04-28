@@ -17,6 +17,8 @@
  (C) Copyright IBM Corp. 2014.
  All Rights Reserved. Licensed Materials - Property of IBM.
 -->
+<%@page import="com.ibm.wasdev.cassandra.ConnectionManager"%>
+<%@page import="com.ibm.wasdev.cassandra.CassandraServlet"%>
 <%@ page import="java.util.HashMap"%>
 <html>
 <head>
@@ -52,13 +54,22 @@
 		</tr>
 		<%
 		    for(String key : items.keySet()) {
-        		;
+        		
+		    	String double_value = items.get(key);
+		    	String value = "";
+        		String trend ="";
+        		
+        		int middle=double_value.indexOf(ConnectionManager.STRING_SEPARATOR);  		
+        		if (middle<0) {
+        			trend = "N/A" ;
+        		} 
+				else {
+        			value = double_value.substring(0, middle);    			
+        		    trend = double_value.substring(middle + ConnectionManager.STRING_SEPARATOR.length());
+        		}
+        		// out.print("middle = " + middle);
+        		
         		out.print("<tr><td>" + key + "</td>\n");
-        		    String value = items.get(key).substring(0, items.get(key).indexOf("---"));
-        		    String trend = (items.get(key).indexOf("---")==0 ? 
-        		    		"N/A" 
-        		    		: 
-        		    		items.get(key).substring("---".length()+items.get(key).indexOf("---")));
 					out.println("<td> " + value + "</td>"+ 
 							    "<td> " + trend + "</td>"+
 							"</tr>\n");
