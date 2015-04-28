@@ -20,15 +20,18 @@
 <%@ page import="java.util.HashMap"%>
 <html>
 <head>
-<title>Cassandra Sample</title>
+<title bgcolor="#C8FE2E">Item Pricing (v2)</title>
 </head>
 <body>
-	<h2>Item Management</h2>
+	<h2 bgcolor="#C8FE2E">Item Pricing (v2)</h2>
 	<form name="ItemMgmt" method="get" action="cassandraDBApp">
 		<label for="item"> Item : </label> <input type="text" name="item"
 			size="25">
 		<p></p>
 		<label for="price">Price:</label> <input type="text" name="price"
+			size="25">
+		<p></p>
+	    <label for="trend">Trend:</label> <input type="text" name="trend"
 			size="25">
 		<p></p>
 		
@@ -42,16 +45,18 @@
 	if (items != null && !items.isEmpty()) {
 %>
 	<table width="50%" border="1">
-		<tr bgcolor="#AAAAAAA">
+		<tr bgcolor="#C8FE2E">
 			<th>Item</th>
 			<th>Price</th>
+		    <th>Trend</th>
 		</tr>
 		<%
 		    for(String key : items.keySet()) {
         		;
         		out.print("<tr><td>" + key + "</td>\n");
-					out.println("<td> " + items.get(key)
-							+ "</td></tr>\n");
+					out.println("<td> " + items.get(key).substring(0, items.get(key).indexOf("---"))+ "</td>"+ 
+							    "<td> " + items.get(key).substring("---".length()+items.get(key).indexOf("---")) + "</td>"+
+							"</tr>\n");
         	}
 		 %>
 	</table>
