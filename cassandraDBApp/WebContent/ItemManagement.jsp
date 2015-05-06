@@ -20,7 +20,7 @@
 <%@ page import="java.util.HashMap"%>
 <html>
 <head>
-<title>Cassandra Sample</title>
+<title>The Pricing Application</title>
 </head>
 <body>
 	<h2>Item Management</h2>
