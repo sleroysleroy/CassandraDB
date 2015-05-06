@@ -28,8 +28,6 @@
 <html>
 <head>
 
-
-
 <title bgcolor="#C8FE2E">Pricing Application (v2)</title>
 </head>
 <body>
