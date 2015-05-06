@@ -30,14 +30,14 @@
 
 
 
-<title bgcolor="#C8FE2E">Pricing (v2)</title>
+<title bgcolor="#C8FE2E">Pricing Application (v2)</title>
 </head>
 <body>
 
 <!-- <img src="images/ME.gif">  -->
 <!-- <img src="<%=request.getContextPath()%>/images/ME.jpg">  -->
 <!-- <img src="${pageContext.request.contextPath}/images/ME.png">  -->
-<img src="images/GreenBicycleTls.jpg">
+<img src="${pageContext.request.contextPath}/images/GreenBicycleTls.jpg">
 
 
 	<h2 bgcolor="#C8FE2E">Pricing Application</h2>
