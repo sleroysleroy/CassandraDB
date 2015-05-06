@@ -40,7 +40,7 @@
 <img src="images/GreenBicycleTls.jpg">
 
 
-	<h2 bgcolor="#C8FE2E">Item Pricing (v2)</h2>
+	<h2 bgcolor="#C8FE2E">Pricing Application</h2>
 	<form name="ItemMgmt" method="get" action="cassandraDBApp">
 		<label for="item"> Item: </label> <input type="text" name="item"
 			size="25">
