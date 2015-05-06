@@ -17,17 +17,32 @@
  (C) Copyright IBM Corp. 2014.
  All Rights Reserved. Licensed Materials - Property of IBM.
 -->
+
+
+
+
+
 <%@page import="com.ibm.wasdev.cassandra.ConnectionManager"%>
 <%@page import="com.ibm.wasdev.cassandra.CassandraServlet"%>
 <%@ page import="java.util.HashMap"%>
 <html>
 <head>
-<title bgcolor="#C8FE2E">Item Pricing (v2)</title>
+
+
+
+<title bgcolor="#C8FE2E">Pricing (v2)</title>
 </head>
 <body>
+
+<!-- <img src="images/ME.gif">  -->
+<!-- <img src="<%=request.getContextPath()%>/images/ME.jpg">  -->
+<!-- <img src="${pageContext.request.contextPath}/images/ME.png">  -->
+<img src="images/GreenBicycleTls.jpg">
+
+
 	<h2 bgcolor="#C8FE2E">Item Pricing (v2)</h2>
 	<form name="ItemMgmt" method="get" action="cassandraDBApp">
-		<label for="item"> Item : </label> <input type="text" name="item"
+		<label for="item"> Item: </label> <input type="text" name="item"
 			size="25">
 		<p></p>
 		<label for="price">Price:</label> <input type="text" name="price"
